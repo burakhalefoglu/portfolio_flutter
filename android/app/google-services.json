@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "477683893012",
+    "project_id": "fluttertest-59fab",
+    "storage_bucket": "fluttertest-59fab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477683893012:android:c40db6d196090ab9e8f801",
+        "android_client_info": {
+          "package_name": "com.tr.portfolio.tr_portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477683893012-bo7at16qqhqpasi6a34atiueprscmer1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tr.portfolio.tr_portfolio",
+            "certificate_hash": "8ec37f5f3e8318e3b9abada57f9d59b80cdf25c1"
+          }
+        },
+        {
+          "client_id": "477683893012-rsvq18k4lfgso9furscuslusgkm2s794.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8vgXPpWyJ5KmDJ8_tzMSd3z9nMkSi_Ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477683893012-rsvq18k4lfgso9furscuslusgkm2s794.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "477683893012-avjtqce0bjbc955gtcdfjap1l7373ol8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tr.portfolio.trPortfolio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
