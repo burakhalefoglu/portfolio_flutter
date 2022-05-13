@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import '../../core/styles/styles.dart';
 import '../../core/utilities/sign_in_with_google.dart';
 import '../../core/utilities/sing_in_with_base.dart';
 import '../../core/widgets/header_title_widget.dart';
@@ -49,8 +49,14 @@ class AuthPage extends StatelessWidget {
                       ? const EdgeInsets.symmetric(horizontal: 0, vertical: 0)
                       : const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
                   children: [
-                    getHeaderTitle(
-                        'assets/images/login.png', "Giriş Sayfası", ""),
+                    getHeaderTitle(Container(
+                      margin: EdgeInsets.all(5),
+                      child: Icon(
+                        Icons.account_box_rounded,
+                        color: Styles.defaultBlueColor,
+                        size: 100,
+                      ),
+                    ),"Giriş Sayfası", ""),
                     privacyPolicyAndTermsOfConditionWidget(),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,

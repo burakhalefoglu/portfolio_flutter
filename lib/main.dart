@@ -21,7 +21,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Modular.setInitialRoute('/home');
+    Modular.setInitialRoute('/');
     return MaterialApp.router(
       title: 'Portfolio',
       routeInformationParser: Modular.routeInformationParser,

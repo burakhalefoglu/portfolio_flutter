@@ -41,6 +41,7 @@ dependencies:
   flutter_modular: ^5.0.0
   flutter_secure_storage: ^5.0.2
   fl_chart: ^0.50.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -65,7 +66,5 @@ flutter:
 
   assets:
     - .env
+    - assets/
     - assets/images/
-    - assets/card_logos/
-    - assets/astranaut.png
-    - assets/logo.png

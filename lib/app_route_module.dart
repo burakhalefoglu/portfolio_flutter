@@ -5,7 +5,6 @@ import 'core/utilities/guards/redirect_guard.dart';
 import 'features/auth/auth_bloc.dart';
 import 'features/auth/auth_page.dart';
 import 'features/dashboard/dashboard_page.dart';
-import 'features/home/home_page.dart';
 import 'features/not_found_page/not_found_page.dart';
 import 'features/profile/profile_page.dart';
 
@@ -20,17 +19,13 @@ class AppRouteModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute('/home',
-            child: (context, args) => const HomePage(),
-            guards: [RedirectGuard()]
-        ),
         ChildRoute('/login',
             child: (context, args) => const AuthPage(),
             guards: [RedirectGuard()]
         ),
         ChildRoute('/',
             child: (context, args) => const DashboardPage(),
-            guards: [AuthGuard()]),
+        ),
         ChildRoute('/profile',
             child: (context, args) => const ProfilePage(),
             guards: [AuthGuard()]),

@@ -1,14 +1,13 @@
 
 import 'package:flutter/material.dart';
 
-Widget getHeaderTitle(String avatarPath, String title, String subtitle) {
+Widget getHeaderTitle(Container icon, String title, String subtitle) {
   return Column(
     children: <Widget>[
-      CircleAvatar(
-        radius: 40.0,
-        backgroundImage: AssetImage(avatarPath),
-        backgroundColor: Colors.transparent,
+      const SizedBox(
+        height: 10,
       ),
+      icon,
       const SizedBox(
         height: 10,
       ),
