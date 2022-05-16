@@ -3,7 +3,7 @@ import 'core/utilities/check_auth_status.dart';
 import 'core/utilities/guards/auth_guard.dart';
 import 'core/utilities/guards/redirect_guard.dart';
 import 'features/auth/auth_bloc.dart';
-import 'features/auth/auth_page.dart';
+import 'features/auth/desktop/auth_page.dart';
 import 'features/dashboard/dashboard_page.dart';
 import 'features/not_found_page/not_found_page.dart';
 import 'features/profile/profile_page.dart';

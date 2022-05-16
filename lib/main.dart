@@ -26,6 +26,7 @@ class AppWidget extends StatelessWidget {
       title: 'Portfolio',
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      theme: ThemeData(), // TODO: theme data will add
     );
   }
 }
