@@ -40,6 +40,8 @@ dependencies:
   flutter_modular: ^5.0.0
   flutter_secure_storage: ^5.0.2
   fl_chart: ^0.50.1
+  flutter_svg: ^1.0.3
+  google_fonts: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -65,5 +67,6 @@ flutter:
 
   assets:
     - .env
-    - assets/
-    - assets/images/
+    - assets/images/png/
+    - assets/images/svg/
+

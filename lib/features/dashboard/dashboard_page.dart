@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tr_portfolio/core/widgets/responsive_widget.dart';
+import 'package:tr_portfolio/features/dashboard/desktop/dashboard_desktop.dart';
+
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -17,10 +20,10 @@ class DashboardHomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<DashboardHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const ResponsiveWidget(
+      desktop: DashboardDesktop()
+    );
   }
 }
-
