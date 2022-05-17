@@ -22,7 +22,7 @@ extension NumberExtension on BuildContext {
   double get lowValue => dynamicHeight(0.02);
   double get mediumValue => dynamicHeight(0.03);
   double get highValue => dynamicHeight(0.07);
-  double get maxMobilePortraitWith => 599;
+  double get maxMobilePortraitWith => 650;
   double get maxTabletPortraitWith => 1200;
 }
 

@@ -38,7 +38,7 @@ class AppWidget extends StatelessWidget {
       cardTheme: buildCardTheme(),
       bottomAppBarTheme: buildBottomAppBarTheme(),
       elevatedButtonTheme: buildElevatedButtonThemeData(),
-      fontFamily: Styles.fontFamily,
+      // fontFamily: Styles.fontFamily,
       errorColor: Styles.dangerColorShocking,
       primaryColor: Styles.primaryColorPictonBlue,
       backgroundColor: Styles.lightColorGhost,

@@ -10,8 +10,13 @@ class AuthPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveWidget(desktop: AuthPageDesktop(),mobile: AuthPageMobile(),
-        tablet: AuthPageTablet(),
+    return const SafeArea(
+      child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: ResponsiveWidget(desktop: AuthPageDesktop(),mobile: AuthPageMobile(),
+            tablet: AuthPageTablet(),
+        ),
+      ),
     );
   }
 

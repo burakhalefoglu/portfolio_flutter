@@ -9,8 +9,7 @@ class AuthPageTablet extends StatelessWidget {
   // google sing -> singInWithBase(context, signInWithGoogle)
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: context.highVerticalPadding,
         child: Row(
           children: [
@@ -21,7 +20,6 @@ class AuthPageTablet extends StatelessWidget {
             Expanded(flex: 20,child: context.emptyWidgetWidth),
           ],
         ),
-      ),
     );
   }
 }

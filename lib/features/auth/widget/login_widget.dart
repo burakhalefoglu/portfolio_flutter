@@ -8,7 +8,7 @@ import '../../../widgets/button.dart';
 import '../../../widgets/images.dart';
 
 class LoginWidget extends StatelessWidget {
-  var title = "Giriş Sayfası";
+  var title = "Giriş";
   var orMessage = "yada";
   var forgetLinkMessage = "şifremi unuttum";
   var buttonName = "Giriş yap";
@@ -26,7 +26,7 @@ class LoginWidget extends StatelessWidget {
           const Spacer(flex: 10),
           Expanded(flex: 20, child: buildTitle(title, context)),
           const Spacer(flex: 10),
-          Expanded(flex: 12, child: buildSocialLogin(context)),
+          Expanded(flex: 8, child: buildSocialLogin(context)),
           const Spacer(flex: 5),
           Expanded(flex: 10, child: buildSmallText(orMessage, context)),
           Expanded(flex: 30, child: buildEmailField(context, emailLabel)),

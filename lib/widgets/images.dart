@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 class PngImageWidget extends StatelessWidget{
   final String name;
-  String get _nameWithPicture => "images/png/$name.png";
+  String get _nameWithPicture => "assets/images/png/$name.png";
 
   const PngImageWidget({Key? key, required this.name}) : super(key: key);
 
@@ -16,7 +16,7 @@ class PngImageWidget extends StatelessWidget{
 
 class SvgImageWidget extends StatelessWidget{
   final String name;
-  String get _nameWithPicture => "images/svg/$name.svg";
+  String get _nameWithPicture => "assets/images/svg/$name.svg";
 
   const SvgImageWidget({Key? key, required this.name}) : super(key: key);
 
