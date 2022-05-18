@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tr_portfolio/core/extensions/extensions.dart';
 
-import '../widget/login_widget.dart';
+class DesktopAuthPage extends StatelessWidget {
+  final Widget cardWidget;
+  const DesktopAuthPage({Key? key, required this.cardWidget}) : super(key: key);
 
-class AuthPageDesktop extends StatelessWidget {
-  const AuthPageDesktop({Key? key}) : super(key: key);
-
-  // google sing -> singInWithBase(context, signInWithGoogle)
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +13,7 @@ class AuthPageDesktop extends StatelessWidget {
           children: [
             Expanded(flex: 35,child: context.emptyWidgetWidth),
             Expanded( flex: 30,
-              child: LoginWidget(),
+              child: cardWidget,
             ),
             Expanded(flex: 35,child: context.emptyWidgetWidth),
           ],

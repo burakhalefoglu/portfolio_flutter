@@ -1,19 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tr_portfolio/core/models/storage_item.dart';
-import 'package:tr_portfolio/features/auth/auth_model.dart';
 
-import '../../core/models/response.dart';
-import '../../core/services/secure_local_storage_service.dart';
+import '../../../core/models/response.dart';
+import '../../../core/services/secure_local_storage_service.dart';
+import 'login_model.dart';
 
-class AuthData {
+class LoginData {
 
-  AuthData.internal();
+  LoginData.internal();
 
-  static final AuthData _singleton =
-  AuthData.internal();
+  static final LoginData _singleton =
+  LoginData.internal();
 
-  factory AuthData() {
+  factory LoginData() {
     return _singleton;
   }
 
@@ -23,7 +23,7 @@ class AuthData {
       String? password) async {
     try {
     final loginOrRegisterModel =
-    AuthModel.withData(uuid, email!, name!, password!);
+    LoginModel.withData(uuid, email!, name!, password!);
     String url = dotenv.get('API_URL_DEV');
     const endpoint= "Auth/LoginOrRegister";
     var dio = Dio();

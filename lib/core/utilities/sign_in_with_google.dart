@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:tr_portfolio/features/auth/auth_bloc.dart';
+import 'package:tr_portfolio/features/auth/login/login_bloc.dart';
 
 import '../models/response.dart';
 
@@ -52,7 +52,7 @@ Future<ResponseModel> signInWithGoogle() async {
     final email = userCredentials.user?.email;
     final name = userCredentials.user?.displayName;
     final profilePicture = userCredentials.user?.photoURL; // TODO:
-    final result = await authBloc
+    final result = await loginBloc
         .loginOrRegister(uuid.toString(), email, name, "");
     return result;
   }

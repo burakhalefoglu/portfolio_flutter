@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:tr_portfolio/features/auth/auth_data.dart';
+import '../../../core/models/response.dart';
+import 'login_data.dart';
 
-import '../../core/models/response.dart';
-
-class AuthBloc{
+class LoginBloc{
   final loginOrRegisterStreamController = StreamController.broadcast();
 
   Stream get getStream => loginOrRegisterStreamController.stream;
@@ -14,17 +13,17 @@ class AuthBloc{
       String? email,
       String? name,
       String? password) async{
-    final result = await AuthData.loginOrRegister(uuid,
+    final result = await LoginData.loginOrRegister(uuid,
         email,
         name,
         password);
-    loginOrRegisterStreamController.sink.add(AuthData.getToken());
+    loginOrRegisterStreamController.sink.add(LoginData.getToken());
     return result;
   }
 
   Future<String?> getToken() async{
-    return await AuthData.getToken();
+    return await LoginData.getToken();
   }
 }
 
-final authBloc = AuthBloc();
+final loginBloc = LoginBloc();

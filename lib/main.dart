@@ -21,7 +21,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Modular.setInitialRoute('/login');
+    Modular.setInitialRoute('/');
     return MaterialApp.router(
       title: 'Portfolio',
       routeInformationParser: Modular.routeInformationParser,
@@ -41,7 +41,7 @@ class AppWidget extends StatelessWidget {
       // fontFamily: Styles.fontFamily,
       errorColor: Styles.dangerColorShocking,
       primaryColor: Styles.primaryColorPictonBlue,
-      backgroundColor: Styles.lightColorGhost,
+      backgroundColor: Styles.transparent,
       cardColor: Styles.transparent,
       shadowColor: Styles.lightColorGhost,
       bottomAppBarColor: Styles.transparent,
@@ -72,7 +72,7 @@ class AppWidget extends StatelessWidget {
     return ColorScheme(
       brightness: Brightness.light,
       shadow: Styles.lightColorGhost,
-      background: Styles.darkTextColorTuna,
+      background: Styles.transparent,
       onBackground: Styles.lightColorGhost,
       outline: Styles.lightColorGhost,
       surface: Styles.transparent,
