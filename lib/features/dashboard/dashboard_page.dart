@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tr_portfolio/core/extensions/extensions.dart';
 import 'package:tr_portfolio/core/widgets/responsive_widget.dart';
-import 'package:tr_portfolio/features/dashboard/desktop/dashboard_desktop.dart';
+import '../../widgets/custom_appbar.dart';
+import '../../widgets/custom_bottom_bar.dart';
+import 'dashboard_desktop.dart';
 
 
 class DashboardPage extends StatelessWidget {
@@ -8,22 +11,54 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DashboardHomePage();
+    return DashboardHomePage();
   }
 }
 
-class DashboardHomePage extends StatefulWidget {
-  const DashboardHomePage({Key? key}) : super(key: key);
+class DashboardHomePage extends StatelessWidget {
+  var appbar = CustomAppbar();
+  var customBottomBar = CustomBottomBar();
 
-  @override
-  State<DashboardHomePage> createState() => _HomePageState();
-}
+  var appbarTitle = "Portfolio";
 
-class _HomePageState extends State<DashboardHomePage> {
+  DashboardHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveWidget(
-      desktop: DashboardDesktop()
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        drawer: context.isMobile? null: buildDrawer(),
+        appBar: appbar.buildAppBar(appbarTitle, context),
+        body: ResponsiveWidget(
+            desktop: DashboardDesktop(),
+            tablet: DashboardDesktop(),
+            mobile: DashboardDesktop(),
+        ),
+        floatingActionButton: buildFloatingActionButton(context),
+        floatingActionButtonLocation:  FloatingActionButtonLocation.endFloat,
+       bottomNavigationBar: context.isMobile? customBottomBar.buildBottomNavigationBar(context): null,
+      ),
     );
   }
+
+  Drawer buildDrawer() => Drawer();
+
+
+
+  SizedBox buildFloatingActionButton(BuildContext context) {
+    return SizedBox(
+      height: context.isMobile? context.biggestValue: context.bigValue,
+      child: FittedBox(
+        child: FloatingActionButton(
+            mini: false,
+            onPressed: () {},
+            tooltip: "Yeni Bir Portföy kur.",
+            child: Icon(Icons.add,
+                    color: context.theme.colorScheme.onPrimary),
+          ),
+      ),
+    );
+  }
+
 }

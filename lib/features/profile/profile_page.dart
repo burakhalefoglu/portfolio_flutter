@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:tr_portfolio/core/widgets/responsive_widget.dart';
 
+import '../../widgets/custom_appbar.dart';
+
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  var appbar = CustomAppbar();
+  var appbarTitle = "Profil";
+
+  ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: ResponsiveWidget(
-        desktop: ProfileForDesktopWidget(),
-        tablet: ProfileForTabletWidget(),
-        mobile: ProfileForMobileWidget(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: appbar.buildAppBar(appbarTitle, context),
+        resizeToAvoidBottomInset: false,
+        body: const ResponsiveWidget(
+          desktop: ProfileForDesktopWidget(),
+          tablet: ProfileForTabletWidget(),
+          mobile: ProfileForMobileWidget(),
+        ),
       ),
     );
   }
+
+
 }
 
 class ProfileForDesktopWidget extends StatelessWidget {

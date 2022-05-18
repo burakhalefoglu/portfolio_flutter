@@ -15,6 +15,8 @@ extension ResponsiveExtension on BuildContext{
   bool get isTablet => MediaQuery.of(this).size.width < maxTabletPortraitWith
       && MediaQuery.of(this).size.width >= maxMobilePortraitWith;
   bool get isDesktop => MediaQuery.of(this).size.width >= maxTabletPortraitWith;
+
+
 }
 
 extension NumberExtension on BuildContext {
@@ -22,11 +24,15 @@ extension NumberExtension on BuildContext {
   double get lowValue => dynamicHeight(0.02);
   double get mediumValue => dynamicHeight(0.03);
   double get highValue => dynamicHeight(0.07);
+
+  double get bigValue => dynamicHeight(0.10);
+  double get biggestValue => dynamicHeight(0.14);
   double get maxMobilePortraitWith => 650;
   double get maxTabletPortraitWith => 1200;
 }
 
 extension PaddingExtension on BuildContext {
+  EdgeInsets get lowestPadding => EdgeInsets.all(lowestValue);
   EdgeInsets get lowPadding => EdgeInsets.all(lowValue);
   EdgeInsets get defaultPadding => EdgeInsets.all(mediumValue);
   EdgeInsets get highPadding => EdgeInsets.all(highValue);
@@ -42,6 +48,7 @@ extension PaddingExtension on BuildContext {
 }
 
 extension MarginExtension on BuildContext {
+  EdgeInsets get lowestMargin => EdgeInsets.all(lowestValue);
   EdgeInsets get lowMargin => EdgeInsets.all(lowValue);
   EdgeInsets get defaultMargin => EdgeInsets.all(mediumValue);
   EdgeInsets get highMargin => EdgeInsets.all(highValue);

@@ -38,6 +38,9 @@ class AppWidget extends StatelessWidget {
       cardTheme: buildCardTheme(),
       bottomAppBarTheme: buildBottomAppBarTheme(),
       elevatedButtonTheme: buildElevatedButtonThemeData(),
+      popupMenuTheme: buildPopupMenuThemeData(),
+      iconTheme: buildIconThemeData(),
+      bottomNavigationBarTheme: buildBottomNavigationBarThemeData(),
       // fontFamily: Styles.fontFamily,
       errorColor: Styles.dangerColorShocking,
       primaryColor: Styles.primaryColorPictonBlue,
@@ -47,6 +50,15 @@ class AppWidget extends StatelessWidget {
       bottomAppBarColor: Styles.transparent,
     );
   }
+
+  BottomNavigationBarThemeData buildBottomNavigationBarThemeData() => BottomNavigationBarThemeData(
+    selectedIconTheme: IconThemeData(color: Styles.darkColorBlueCharcoal),
+    unselectedIconTheme: IconThemeData(color: Styles.lightColorGhost),
+  );
+
+  PopupMenuThemeData buildPopupMenuThemeData() => PopupMenuThemeData(
+    color: Styles.whiteColor,
+  );
 
   ElevatedButtonThemeData buildElevatedButtonThemeData() => ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
@@ -104,7 +116,7 @@ class AppWidget extends StatelessWidget {
 
   AppBarTheme buildAppBarTheme() {
     return AppBarTheme(
-        centerTitle: true,
+        centerTitle: false,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         backgroundColor: Colors.transparent,
         elevation: 0,
