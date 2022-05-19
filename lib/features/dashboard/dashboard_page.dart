@@ -48,7 +48,7 @@ class DashboardHomePage extends StatelessWidget {
 
   SizedBox buildFloatingActionButton(BuildContext context) {
     return SizedBox(
-      height: context.isMobile? context.biggestValue: context.bigValue,
+      height: context.isMobile? context.floatingActionButtonBig: context.floatingActionButtonSmall,
       child: FittedBox(
         child: FloatingActionButton(
             mini: false,

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tr_portfolio/core/extensions/extensions.dart';
-import 'package:tr_portfolio/core/styles/styles.dart';
+
+import '../core/styles/custom_colors.dart';
 
 class CustomAppbar {
   var starFeedbackTooltip = "Geri bildirim gönder";
   var searchTooltip = "birşeyler ara";
   var messageFeedbackTooltip = "geri bildirim gönder";
+  var ratingBarMessage = "Ürünümüzü nasıl buldunuz?";
+  var popUpMenuMessage = "Diğer";
 
   AppBar buildAppBar(String title, BuildContext context) => AppBar(
         title: Text(
@@ -23,6 +26,7 @@ class CustomAppbar {
 
   PopupMenuButton<Text> buildPopupMenu() {
     return PopupMenuButton<Text>(
+      tooltip: popUpMenuMessage,
       itemBuilder: (context) {
         return [
           PopupMenuItem(child: buildProfile(context)),
@@ -52,49 +56,52 @@ class CustomAppbar {
         title: const Text("Profil"));
   }
 
-  RatingBar buildIconRatingBar(BuildContext context) {
-    return RatingBar.builder(
-      itemSize: context.mediumValue,
-      itemPadding: context.lowVerticalPadding,
-      initialRating: 5,
-      itemCount: 5,
-      itemBuilder: (context, index) {
-        switch (index) {
-          case 0:
-            return Icon(
-              Icons.sentiment_very_dissatisfied,
-              color: Styles.dangerTextColorRoyalHeath,
-            );
-          case 1:
-            return Icon(
-              Icons.sentiment_dissatisfied,
-              color: Styles.dangerColorShocking,
-            );
-          case 2:
-            return Icon(
-              Icons.sentiment_neutral,
-              color: Styles.warningColorAtomicTangerine,
-            );
-          case 3:
-            return Icon(
-              Icons.sentiment_satisfied,
-              color: Styles.successColorDeYork,
-            );
-          case 4:
-            return Icon(
-              Icons.sentiment_very_satisfied,
-              color: Styles.successTextColorGrenadier,
-            );
-          default:
-            return Icon(
-              Icons.sentiment_very_satisfied,
-              color: Styles.successColorDeYork,
-            );
-        }
-      },
-      onRatingUpdate: (rating) {
-        print(rating);
-      },
+  Tooltip buildIconRatingBar(BuildContext context) {
+    return Tooltip(
+      message: ratingBarMessage,
+      child: RatingBar.builder(
+        itemSize: context.mediumValue,
+        itemPadding: context.lowVerticalPadding,
+        initialRating: 5,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          switch (index) {
+            case 0:
+              return Icon(
+                Icons.sentiment_very_dissatisfied,
+                color: CustomColors.alizarinCrimson.getColor,
+              );
+            case 1:
+              return Icon(
+                Icons.sentiment_dissatisfied,
+                color: CustomColors.fireBush.getColor,
+              );
+            case 2:
+              return Icon(
+                Icons.sentiment_neutral,
+                color: CustomColors.goldenDream.getColor,
+              );
+            case 3:
+              return Icon(
+                Icons.sentiment_satisfied,
+                color: CustomColors.pear.getColor,
+              );
+            case 4:
+              return Icon(
+                Icons.sentiment_very_satisfied,
+                color: CustomColors.inchWorm.getColor,
+              );
+            default:
+              return Icon(
+                Icons.sentiment_very_satisfied,
+                color: CustomColors.oliveDrab.getColor,
+              );
+          }
+        },
+        onRatingUpdate: (rating) {
+          print(rating);
+        },
+      ),
     );
   }
 

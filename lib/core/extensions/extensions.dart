@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-
-import '../styles/styles.dart';
+import 'package:tr_portfolio/core/styles/base_colors.dart';
 
  extension ContextExtension on BuildContext {
   double dynamicWidth(double val) => MediaQuery.of(this).size.width * val;
@@ -20,13 +19,21 @@ extension ResponsiveExtension on BuildContext{
 }
 
 extension NumberExtension on BuildContext {
-  double get lowestValue => dynamicHeight(0.01);
+  double get lowestValue => dynamicHeight(0.005);
   double get lowValue => dynamicHeight(0.02);
   double get mediumValue => dynamicHeight(0.03);
   double get highValue => dynamicHeight(0.07);
 
-  double get bigValue => dynamicHeight(0.10);
-  double get biggestValue => dynamicHeight(0.14);
+  double get floatingActionButtonSmall => dynamicHeight(0.09);
+  double get floatingActionButtonBig => dynamicHeight(0.12);
+
+  double get percent10Screen => dynamicHeight(0.10);
+  double get percent15Screen => dynamicHeight(0.15);
+  double get percent2Screen0 => dynamicHeight(0.20);
+  double get quarterOfScreen => dynamicHeight(0.25);
+  double get percent40Screen => dynamicHeight(0.40);
+  double get halfOfScreen => dynamicHeight(0.5);
+
   double get maxMobilePortraitWith => 650;
   double get maxTabletPortraitWith => 1200;
 }
@@ -52,14 +59,23 @@ extension MarginExtension on BuildContext {
   EdgeInsets get lowMargin => EdgeInsets.all(lowValue);
   EdgeInsets get defaultMargin => EdgeInsets.all(mediumValue);
   EdgeInsets get highMargin => EdgeInsets.all(highValue);
+
+  EdgeInsets get lowHorizontalMargin => EdgeInsets.symmetric(horizontal: lowValue);
+  EdgeInsets get defaultHorizontalMargin => EdgeInsets.symmetric(horizontal: mediumValue);
+  EdgeInsets get highHorizontalMargin => EdgeInsets.symmetric(horizontal: highValue);
+
+  EdgeInsets get lowVerticalMargin => EdgeInsets.symmetric(vertical: lowValue);
+  EdgeInsets get defaultVerticalMargin => EdgeInsets.symmetric(vertical: mediumValue);
+  EdgeInsets get highVerticalMargin => EdgeInsets.symmetric(vertical: highValue);
 }
 
 extension BorderExtension on BuildContext {
   BorderRadius get defaultBorderRadius => BorderRadius.circular(lowValue);
+  BorderRadius get lowestBorderRadius => BorderRadius.circular(lowestValue);
   ShapeBorder get shapeBorder => RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(mediumValue),
+    borderRadius: BorderRadius.circular(lowestValue),
     side: BorderSide(
-      color: Styles.lightColorGhost.withOpacity(.5),
+      color: BaseColors.grey.getColor.withOpacity(.5),
       width: 1,
     ),
   );

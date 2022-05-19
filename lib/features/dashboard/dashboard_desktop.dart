@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tr_portfolio/core/extensions/extensions.dart';
-
+import 'bases/future_income_widget.dart';
 import 'bases/home_widgets.dart';
+import 'bases/monthly_avarage_widget.dart';
+import 'bases/performance_analysis_widget.dart';
+import 'bases/total_sell_income_widget.dart';
+
 
 class DashboardDesktop extends StatelessWidget {
   var homeWidgets = HomeWidgets();
@@ -13,54 +17,51 @@ class DashboardDesktop extends StatelessWidget {
       padding: context.highHorizontalPadding,
       children: [
         SizedBox(
-          height: context.dynamicHeight(.4),
+          height: context.percent40Screen,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 6,
+                flex: 3,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                          flex: 1,
+                          flex: 2,
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(child: homeWidgets.buildScoreCard()),
-                                Expanded(
-                                    child:
-                                        homeWidgets.buildTotalSellIncomeCard()),
-                                Expanded(
-                                    child:
-                                        homeWidgets.buildMountlyAvarageCard()),
+                              children: const [
+                                Expanded(child: TotalSellIncomeWidget()),
+                                Expanded(child: MontlyAvarageWidget()),
                               ])),
-                      Expanded(
-                          flex: 4, child: homeWidgets.buildPerformanceCard()),
+                      const Expanded(
+                        flex: 6,
+                        child: FutureIncomeWidget(),
+                      ),
                     ]),
               ),
-              Expanded(
-                flex: 4,
-                child: homeWidgets.buildFutureValueCard(),
+              const Expanded(
+                flex: 5,
+                child: PerformanceAnalysisWidget(),
               ),
             ],
           ),
         ),
         SizedBox(
-          height: context.dynamicHeight(.4),
+          height: context.halfOfScreen,
           child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(child: homeWidgets.buildInvesmentValueCard()),
-                Expanded(child: homeWidgets.buildPortfolioAnalysisCard()),
+                Expanded(flex: 4, child: homeWidgets.buildInvesmentValueCard()),
+                Expanded(flex: 6, child: homeWidgets.buildPortfolioAnalysisCard()),
               ]),
         ),
         SizedBox(
-          height: context.dynamicHeight(.4),
+          height: context.percent40Screen,
           child: homeWidgets.buildComprasionCard(),
         ),
       ],

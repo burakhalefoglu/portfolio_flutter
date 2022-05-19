@@ -2,8 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:tr_portfolio/core/styles/styles.dart';
+import 'package:tr_portfolio/core/styles/custom_colors.dart';
 import 'app_route_module.dart';
+import 'core/styles/base_colors.dart';
 import 'firebase_options.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -34,7 +35,6 @@ class AppWidget extends StatelessWidget {
     return ThemeData(
       appBarTheme: buildAppBarTheme(),
       floatingActionButtonTheme: buildFloatingActionButtonThemeData(),
-      colorScheme: buildColorScheme(),
       cardTheme: buildCardTheme(),
       bottomAppBarTheme: buildBottomAppBarTheme(),
       elevatedButtonTheme: buildElevatedButtonThemeData(),
@@ -42,75 +42,48 @@ class AppWidget extends StatelessWidget {
       iconTheme: buildIconThemeData(),
       bottomNavigationBarTheme: buildBottomNavigationBarThemeData(),
       // fontFamily: Styles.fontFamily,
-      errorColor: Styles.dangerColorShocking,
-      primaryColor: Styles.primaryColorPictonBlue,
-      backgroundColor: Styles.transparent,
-      cardColor: Styles.transparent,
-      shadowColor: Styles.lightColorGhost,
-      bottomAppBarColor: Styles.transparent,
+      errorColor: CustomColors.alizarinCrimson.getColor,
+      primaryColor: CustomColors.pictonBlue.getColor,
+      backgroundColor: BaseColors.transparent.getColor,
+      cardColor: BaseColors.transparent.getColor,
+      shadowColor: BaseColors.grey.getColor,
+      bottomAppBarColor: BaseColors.transparent.getColor,
     );
   }
 
   BottomNavigationBarThemeData buildBottomNavigationBarThemeData() => BottomNavigationBarThemeData(
-    selectedIconTheme: IconThemeData(color: Styles.darkColorBlueCharcoal),
-    unselectedIconTheme: IconThemeData(color: Styles.lightColorGhost),
+    selectedIconTheme: IconThemeData(color: BaseColors.black.getColor),
+    unselectedIconTheme: IconThemeData(color: BaseColors.grey.getColor),
   );
 
   PopupMenuThemeData buildPopupMenuThemeData() => PopupMenuThemeData(
-    color: Styles.whiteColor,
+    color: BaseColors.white.getColor,
   );
 
   ElevatedButtonThemeData buildElevatedButtonThemeData() => ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-        side: BorderSide(color: Styles.primaryColorPictonBlue),
+        side: BorderSide(color: CustomColors.pictonBlue.getColor),
     textStyle: TextStyle(
-      color: Styles.whiteColor
+      color: BaseColors.white.getColor
     ))
   );
 
   BottomAppBarTheme buildBottomAppBarTheme() => BottomAppBarTheme(
-    color: Styles.whiteColor,
+    color: BaseColors.white.getColor,
     elevation: 1,
   );
 
   CardTheme buildCardTheme() => CardTheme(
-        color: Styles.whiteColor.withOpacity(.95),
+        color: BaseColors.white.getColor.withOpacity(.95),
         elevation: 0.1,
-        surfaceTintColor: Styles.lightColorGhost,
-        shadowColor: Styles.darkColorBlueCharcoal,
+        surfaceTintColor: BaseColors.grey.getColor,
+    shadowColor: BaseColors.black.getColor,
       );
 
-  ColorScheme buildColorScheme() {
-    return ColorScheme(
-      brightness: Brightness.light,
-      shadow: Styles.lightColorGhost,
-      background: Styles.transparent,
-      onBackground: Styles.lightColorGhost,
-      outline: Styles.lightColorGhost,
-      surface: Styles.transparent,
-      onSurface: Styles.darkBackgroundColorFrenchGray,
-      onSecondary: Styles.secondaryTextColorGrenadier,
-      secondary: Styles.secondaryColorCoral,
-      secondaryContainer: Styles.secondaryBackgroundColorTuftBush,
-      onSecondaryContainer: Styles.secondaryTextColorGrenadier,
-      error: Styles.dangerColorShocking,
-      onError: Styles.darkTextColorTuna,
-      errorContainer: Styles.dangerBackgroundColorAmour,
-      onErrorContainer: Styles.dangerTextColorRoyalHeath,
-      primary: Styles.primaryColorPictonBlue,
-      onPrimary: Styles.whiteColor,
-      primaryContainer: Styles.primaryBackgroundColorCharlotte,
-      onPrimaryContainer: Styles.primaryTextColorBlueChill,
-      tertiary: Styles.warningTextColorTenn,
-      onTertiary: Styles.secondaryTextColorGrenadier,
-      tertiaryContainer: Styles.warningBackgroundColorPeachSchnapps,
-      onTertiaryContainer: Styles.warningTextColorTenn,
-    );
-  }
 
   FloatingActionButtonThemeData buildFloatingActionButtonThemeData() {
     return FloatingActionButtonThemeData(
-      backgroundColor: Styles.primaryColorPictonBlue,
+      backgroundColor: CustomColors.pictonBlue.getColor,
     );
   }
 
@@ -126,13 +99,13 @@ class AppWidget extends StatelessWidget {
 
   IconThemeData buildActionsIconThemeData() {
     return IconThemeData(
-      color: Styles.darkColorBlueCharcoal,
+      color: BaseColors.grey.getColor,
     );
   }
 
   IconThemeData buildIconThemeData() {
     return IconThemeData(
-      color: Styles.darkColorBlueCharcoal,
+      color: BaseColors.grey.getColor,
     );
   }
 }

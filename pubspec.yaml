@@ -29,22 +29,19 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_dotenv: ^5.0.2
-  firebase_core: ^1.16.0
-  firebase_auth: ^3.3.17
-  google_sign_in: ^5.3.1
-  fluttertoast: ^8.0.9
-  font_awesome_flutter: ^10.1.0
-  dio: ^4.0.6
-  jwt_decoder: 2.0.1
-  flutter_modular: ^5.0.0
-  flutter_secure_storage: ^5.0.2
-  fl_chart: ^0.50.1
-  flutter_svg: ^1.0.3
-  google_fonts: ^2.3.2
-  flutter_rating_bar: ^4.0.1
-
-
+  flutter_dotenv:
+  firebase_core:
+  firebase_auth:
+  google_sign_in:
+  fluttertoast:
+  fluttericon:
+  dio:
+  jwt_decoder:
+  flutter_modular:
+  flutter_secure_storage:
+  flutter_svg:
+  flutter_rating_bar:
+  syncfusion_flutter_charts:
 
 dev_dependencies:
   flutter_test:
