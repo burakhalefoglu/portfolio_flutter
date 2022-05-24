@@ -17,7 +17,6 @@ class PerformanceAnalysisWidget extends StatelessWidget {
       title: "Performans Analizi",
       data: [
         ChartCategoricalDataModel("Portföy Toplamı",0.36),
-        ChartCategoricalDataModel("Faiz", 0.18),
         ChartCategoricalDataModel("Altın/Ons", 0.84),
         ChartCategoricalDataModel("Gümüş", -0.12),
         ChartCategoricalDataModel("Platin", -0.22),
@@ -29,7 +28,6 @@ class PerformanceAnalysisWidget extends StatelessWidget {
         ChartCategoricalDataModel("Bist30", 0.852),
         ChartCategoricalDataModel("BTC", -0.602),
         ChartCategoricalDataModel("ETH", -0.402),
-        ChartCategoricalDataModel("BTC", -0.602),
       ],
     );
   }
