@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tr_portfolio/core/styles/custom_colors.dart';
 import 'app_route_module.dart';
+import 'core/services/device_info_service.dart';
 import 'core/styles/base_colors.dart';
 import 'firebase_options.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -13,8 +14,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await DeviceInfoService.addOrUpdateDeviceInfo(); // TODO: Send backend after login
 
-  return runApp(ModularApp(module: AppRouteModule(), child: const AppWidget()));
+  runApp(ModularApp(module: AppRouteModule(), child: const AppWidget()));
 }
 
 class AppWidget extends StatelessWidget {

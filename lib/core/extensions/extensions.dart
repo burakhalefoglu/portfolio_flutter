@@ -89,4 +89,9 @@ extension EmptyWidget on BuildContext {
     width: lowValue,
   );
 
+  Widget get emptyWidget => const SizedBox(
+    width: 0,
+    height: 0,
+  );
+
  }

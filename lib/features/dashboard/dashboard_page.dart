@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tr_portfolio/core/extensions/extensions.dart';
 import 'package:tr_portfolio/core/widgets/responsive_widget.dart';
+import 'package:tr_portfolio/widgets/custom_page.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_bottom_bar.dart';
 import 'dashboard_desktop.dart';
@@ -11,7 +12,7 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DashboardHomePage();
+    return CustomPage(child: DashboardHomePage());
   }
 }
 
