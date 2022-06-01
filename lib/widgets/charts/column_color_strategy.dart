@@ -21,7 +21,7 @@ extension SelectedColorExtension on ColumnColorStrategy {
       case ColumnColorStrategy.defaults:
         return defaultColor;
       case ColumnColorStrategy.negativeSensitive:
-        return data > 0? CustomColors.oliveDrab.getColor: CustomColors.alizarinCrimson.getColor;
+        return data > 0? CustomColors.success.getColor: CustomColors.danger.getColor;
       default:
         return defaultColor;
     }

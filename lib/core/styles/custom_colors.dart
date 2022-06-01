@@ -1,49 +1,43 @@
 import 'dart:ui';
 
 enum CustomColors {
-  pictonBlue,
-  fireBush,
-  alizarinCrimson,
-  inchWorm,
-  cerise,
-  electricViolet,
-  goldenDream,
-  jaffa,
-  pear,
-  malachite,
-  royalBlue,
-  oliveDrab,
+  primary,
+  secondary,
+  success,
+  info,
+  warning,
+  danger,
+  light,
+  gray,
+  dark,
+  white
 }
 
 extension SelectedColorExtension on CustomColors {
   Color get getColor {
     switch (this) {
-      case CustomColors.pictonBlue:
-        return const Color(0xff32bdea);
-      case  CustomColors.fireBush:
-        return const Color(0xffeaa032);
-        case  CustomColors.alizarinCrimson:
-        return const Color(0xffea3232);
-        case  CustomColors.inchWorm:
-        return const Color(0xff7cea32);
-      case  CustomColors.cerise:
-        return const Color(0xffea329a);
-        case  CustomColors.electricViolet:
-        return const Color(0xffc232ea);
-        case  CustomColors.goldenDream:
-        return const Color(0xffeacb32);
-        case  CustomColors.jaffa:
-        return const Color(0xffea7932);
-        case  CustomColors.pear:
-        return const Color(0xffb6ea32);
-        case  CustomColors.oliveDrab:
-        return const Color(0xff62b72a);
-        case  CustomColors.malachite:
-        return const Color(0xff32ea82);
-        case  CustomColors.royalBlue:
-        return const Color(0xff324bea);
+      case CustomColors.primary:
+        return const Color(0xff6691ff);
+      case CustomColors.secondary:
+        return const Color(0xffd331f7);
+      case CustomColors.success:
+        return const Color(0xff51bb25);
+      case CustomColors.info:
+        return const Color(0xff7427f9);
+      case CustomColors.warning:
+        return const Color(0xfff8d62b);
+      case CustomColors.danger:
+        return const Color(0xffdc3545);
+      case CustomColors.light:
+        return const Color(0xfff4f4f4);
+      case CustomColors.dark:
+        return const Color(0xff2c323f);
+      case CustomColors.gray:
+        return const Color(0xff93969d);
+      case CustomColors.white:
+        return const Color(0xffffffff);
       default:
-        return const Color(0xff32bdea);
+        return const Color(0xff6691ff);
     }
   }
 }

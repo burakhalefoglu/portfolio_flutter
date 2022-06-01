@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:tr_portfolio/core/extensions/extensions.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import '../chart_custom_card.dart';
-import 'chart_models.dart';
-
 import '../../core/styles/custom_colors.dart';
+import 'chart_models.dart';
 import 'chart_data_types.dart';
 
-class CustomSingleAreaChart extends StatelessWidget {
-  final List<ChartNumericDataModel> data;
+class CustomDoubleAreaChart extends StatelessWidget {
+  final List<ChartNumericDataModel> data1;
+  final List<ChartNumericDataModel> data2;
   final String title;
   final String yTitle;
   final String xTitle;
-  final String labelName;
-  final CustomColors color;
+  final String data1Label;
+  final String data2Label;
+  final CustomColors data1Color;
+  final CustomColors data2Color;
   final ChartDataTypes dataTypes;
 
-  const CustomSingleAreaChart(
+  const CustomDoubleAreaChart(
       {Key? key,
-      required this.data,
       required this.title,
-      required this.labelName,
-      required this.color,
       required this.dataTypes,
       required this.yTitle,
-      required this.xTitle})
+      required this.xTitle,
+      required this.data1,
+      required this.data2,
+      required this.data1Label,
+      required this.data2Label,
+      required this.data1Color,
+      required this.data2Color})
       : super(key: key);
 
   @override
@@ -54,17 +58,37 @@ class CustomSingleAreaChart extends StatelessWidget {
             SplineAreaSeries<ChartNumericDataModel, double>(
               markerSettings: const MarkerSettings(isVisible: true),
               splineType: SplineType.natural,
-              dataSource: data,
+              dataSource: data1,
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    color.getColor.withOpacity(.5),
-                    color.getColor.withOpacity(.0)
-                  ]),
-              borderColor: color.getColor.withOpacity(1),
+                colors: [
+                  data1Color.getColor.withOpacity(.5),
+                  data1Color.getColor.withOpacity(.0)
+                ]
+              ),
+              borderColor: data1Color.getColor.withOpacity(1),
               borderWidth: 3,
-              name: labelName,
+              name: data1Label,
+              xValueMapper: (ChartNumericDataModel sales, _) => sales.label,
+              yValueMapper: (ChartNumericDataModel sales, _) => sales.data,
+            ),
+
+            SplineAreaSeries<ChartNumericDataModel, double>(
+              markerSettings: const MarkerSettings(isVisible: true),
+              splineType: SplineType.natural,
+              dataSource: data2,
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                  colors: [
+                    data2Color.getColor.withOpacity(.5),
+                    data2Color.getColor.withOpacity(.0)
+                  ]
+              ),
+              borderColor: data2Color.getColor.withOpacity(1),
+              borderWidth: 3,
+              name: data2Label,
               xValueMapper: (ChartNumericDataModel sales, _) => sales.label,
               yValueMapper: (ChartNumericDataModel sales, _) => sales.data,
             ),

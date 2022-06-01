@@ -1,11 +1,12 @@
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:tr_portfolio/core/styles/custom_colors.dart';
 import 'app_route_module.dart';
 import 'core/services/device_info_service.dart';
-import 'core/styles/base_colors.dart';
+import 'core/styles/custom_colors.dart';
 import 'firebase_options.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -26,7 +27,12 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Modular.setInitialRoute('/');
     return MaterialApp.router(
-      title: 'Portfolio',
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown},
+      ),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
       theme: buildThemeData(),
@@ -36,78 +42,66 @@ class AppWidget extends StatelessWidget {
   ThemeData buildThemeData() {
     return ThemeData(
       appBarTheme: buildAppBarTheme(),
-      floatingActionButtonTheme: buildFloatingActionButtonThemeData(),
       cardTheme: buildCardTheme(),
       bottomAppBarTheme: buildBottomAppBarTheme(),
+      colorSchemeSeed: CustomColors.primary.getColor,
+      brightness: Brightness.light,
+      scaffoldBackgroundColor:  CustomColors.light.getColor,
+      floatingActionButtonTheme: buildFloatingActionButtonThemeData(),
       elevatedButtonTheme: buildElevatedButtonThemeData(),
-      popupMenuTheme: buildPopupMenuThemeData(),
-      iconTheme: buildIconThemeData(),
-      bottomNavigationBarTheme: buildBottomNavigationBarThemeData(),
-      // fontFamily: Styles.fontFamily,
-      errorColor: CustomColors.alizarinCrimson.getColor,
-      primaryColor: CustomColors.pictonBlue.getColor,
-      backgroundColor: BaseColors.transparent.getColor,
-      cardColor: BaseColors.transparent.getColor,
-      shadowColor: BaseColors.grey.getColor,
-      bottomAppBarColor: BaseColors.transparent.getColor,
+        listTileTheme: buildListTileThemeData()
     );
   }
 
-  BottomNavigationBarThemeData buildBottomNavigationBarThemeData() => BottomNavigationBarThemeData(
-    selectedIconTheme: IconThemeData(color: BaseColors.black.getColor),
-    unselectedIconTheme: IconThemeData(color: BaseColors.grey.getColor),
+  ListTileThemeData buildListTileThemeData() => ListTileThemeData(
+
   );
 
-  PopupMenuThemeData buildPopupMenuThemeData() => PopupMenuThemeData(
-    color: BaseColors.white.getColor,
-  );
-
-  ElevatedButtonThemeData buildElevatedButtonThemeData() => ElevatedButtonThemeData(
+  ElevatedButtonThemeData buildElevatedButtonThemeData()
+  => ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-        side: BorderSide(color: CustomColors.pictonBlue.getColor),
-    textStyle: TextStyle(
-      color: BaseColors.white.getColor
-    ))
+      primary:  CustomColors.primary.getColor.withOpacity(.9),
+    )
   );
+
+  FloatingActionButtonThemeData buildFloatingActionButtonThemeData()
+  => FloatingActionButtonThemeData(
+    backgroundColor: CustomColors.primary.getColor
+  );
+
 
   BottomAppBarTheme buildBottomAppBarTheme() => BottomAppBarTheme(
-    color: BaseColors.white.getColor,
+    color: CustomColors.white.getColor,
     elevation: 1,
   );
 
   CardTheme buildCardTheme() => CardTheme(
-        color: BaseColors.white.getColor.withOpacity(.95),
+        color: CustomColors.white.getColor.withOpacity(.95),
         elevation: 0.1,
-        surfaceTintColor: BaseColors.grey.getColor,
-    shadowColor: BaseColors.black.getColor,
+        shadowColor: CustomColors.dark.getColor.withOpacity(.1),
+        surfaceTintColor: CustomColors.dark.getColor.withOpacity(.1)
       );
-
-
-  FloatingActionButtonThemeData buildFloatingActionButtonThemeData() {
-    return FloatingActionButtonThemeData(
-      backgroundColor: CustomColors.pictonBlue.getColor,
-    );
-  }
 
   AppBarTheme buildAppBarTheme() {
     return AppBarTheme(
         centerTitle: false,
         systemOverlayStyle: SystemUiOverlayStyle.light,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: CustomColors.white.getColor,
+        elevation: 1,
+        shadowColor: CustomColors.light.getColor,
         iconTheme: buildIconThemeData(),
         actionsIconTheme: buildActionsIconThemeData());
   }
 
   IconThemeData buildActionsIconThemeData() {
     return IconThemeData(
-      color: BaseColors.grey.getColor,
+      color: CustomColors.dark.getColor,
     );
   }
 
   IconThemeData buildIconThemeData() {
     return IconThemeData(
-      color: BaseColors.grey.getColor,
+      color: CustomColors.dark.getColor,
     );
   }
 }

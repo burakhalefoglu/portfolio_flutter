@@ -69,32 +69,32 @@ class CustomAppbar {
             case 0:
               return Icon(
                 Icons.sentiment_very_dissatisfied,
-                color: CustomColors.alizarinCrimson.getColor,
+                color: CustomColors.dark.getColor,
               );
             case 1:
               return Icon(
                 Icons.sentiment_dissatisfied,
-                color: CustomColors.fireBush.getColor,
+                color: CustomColors.dark.getColor,
               );
             case 2:
               return Icon(
                 Icons.sentiment_neutral,
-                color: CustomColors.goldenDream.getColor,
+                color: CustomColors.dark.getColor,
               );
             case 3:
               return Icon(
                 Icons.sentiment_satisfied,
-                color: CustomColors.pear.getColor,
+                color: CustomColors.dark.getColor,
               );
             case 4:
               return Icon(
                 Icons.sentiment_very_satisfied,
-                color: CustomColors.inchWorm.getColor,
+                color: CustomColors.dark.getColor,
               );
             default:
               return Icon(
                 Icons.sentiment_very_satisfied,
-                color: CustomColors.oliveDrab.getColor,
+                color: CustomColors.dark.getColor,
               );
           }
         },

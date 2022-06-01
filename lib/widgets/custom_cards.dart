@@ -10,7 +10,7 @@ class CustomCardWidget extends StatelessWidget{
   Widget build(BuildContext context) {
    return Card(
      child: child,
-     margin: context.lowestMargin,
+     margin: context.lowMargin,
      shape: context.shapeBorder,
    );
   }
